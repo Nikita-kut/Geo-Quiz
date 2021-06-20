@@ -1,7 +1,7 @@
 package com.nikita.kut.android.geoquiz
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     private val quizViewModel: QuizViewModel by lazy {
         ViewModelProvider(this).get(QuizViewModel::class.java)
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +52,17 @@ class MainActivity : AppCompatActivity() {
             setPrevButtonEnabled()
             setNexButtonEnabled()
         }
+
+        binding.btnCheat.setOnClickListener {
+            openCheatActivity()
+        }
     }
+
+    private fun openCheatActivity() {
+        val intent = Intent(this, CheatActivity::class.java)
+        startActivity(intent)
+    }
+
 
     private fun updateQuestion() {
         binding.tvQuestion.setText(quizViewModel.currentQuestionText)
