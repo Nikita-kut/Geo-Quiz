@@ -2,6 +2,7 @@ package com.nikita.kut.android.geoquiz
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("TAG", "1 act onCreate")
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -56,6 +58,31 @@ class MainActivity : AppCompatActivity() {
         binding.btnCheat.setOnClickListener {
             openCheatActivity()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("TAG", "1 act onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("TAG", "1 act onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("TAG", "1 act onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("TAG", "1 act onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("TAG", "1 act onDestroy")
     }
 
     private fun openCheatActivity() {
